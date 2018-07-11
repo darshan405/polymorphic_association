@@ -1,0 +1,14 @@
+<h1>Events</h1>
+
+<% @events.each do |event| %>
+  <div class="event">
+    <h3><%= link_to event.name, event %></h3>
+    <div class="date">From <%= event.starts_at.strftime("%B %d, %Y") %> to <%= event.ends_at.strftime("%B %d, %Y") %></div>
+    <div>Description: <%= event.description %></div>
+    <%= link_to 'Destroy event', event_path(event),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<p><%= link_to "New Event", new_event_path %></p>

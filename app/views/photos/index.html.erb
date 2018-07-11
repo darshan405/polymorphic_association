@@ -1,0 +1,13 @@
+<h1>Photos</h1>
+
+<% @photos.each do |photo| %>
+  <div class="photo">
+    <%= image_tag photo.filename %>
+    <p><%=link_to photo.name, photo %></p>
+    <%= link_to 'Destroy photo', photo_path(photo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<p><%= link_to "New Photo", new_photo_path %></p>
